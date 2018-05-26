@@ -3,4 +3,5 @@
     <string name="imie">Imie</string>
     <string name="nazwisko">Nazwisko</string>
     <string name="liczba_ocen">Liczba ocen</string>
+    <string name="oblicz">OBLICZ</string>
 </resources>

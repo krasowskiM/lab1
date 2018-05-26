@@ -34,13 +34,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="@string/liczba_ocen" />
 
         <Button
             android:id="@+id/submit_1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/oblicz"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
