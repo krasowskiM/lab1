@@ -4,44 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.maciej_krasowski.lab1.ActivityLab1">
+    tools:context="com.example.maciej_krasowski.lab1.activity.ActivityLab1">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="368dp"
         android:layout_height="495dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <EditText
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/imie" />
+            android:hint="@string/imie"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editText"
+            android:layout_marginTop="23dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/nazwisko" />
+            android:hint="@string/nazwisko"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editText"
+            android:layout_marginTop="100dp"
             android:ems="10"
-            android:inputType="number"
-            android:hint="@string/liczba_ocen" />
+            android:hint="@string/liczba_ocen"
+            android:inputType="number" />
 
         <Button
             android:id="@+id/submit_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/oblicz"/>
-    </LinearLayout>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="@string/oblicz" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
