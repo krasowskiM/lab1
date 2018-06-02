@@ -8,4 +8,5 @@
     <string name="gradeValueInfo">Wprowadz wartosc z przedzialu pomiedzy 5 a 15</string>
     <string name="gradePick">gradePick</string>
     <string name="gradeKey">grade</string>
+    <string name="average">Twoja srednia to %s</string>
 </resources>

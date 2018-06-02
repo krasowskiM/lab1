@@ -4,11 +4,10 @@ import java.io.Serializable;
 
 public class Grade implements Serializable {
     private final String name;
-    private final int value;
+    private int value;
 
-    public Grade(String name, int value) {
+    public Grade(String name) {
         this.name = name;
-        this.value = value;
     }
 
     public String getName() {
@@ -17,5 +16,9 @@ public class Grade implements Serializable {
 
     public int getValue() {
         return value;
+    }
+
+    public void setValue(int value){
+        this.value = value;
     }
 }

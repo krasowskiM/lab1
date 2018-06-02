@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.maciej_krasowski.lab1.activity.GradePickActivity">
+
+
+    <ListView
+        android:id="@+id/gradeListView"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--<TextView-->
+            <!--android:id="@+id/groupLabel"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<RadioGroup-->
+            <!--android:id="@+id/buttonGroup"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/buttonOne"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="1" />-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/buttonTwo"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="2" />-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/buttonThree"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="3" />-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/buttonFour"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="4" />-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/buttonFive"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:text="5" />-->
+        <!--</RadioGroup>-->
+
+    </ListView>
+    <Button
+        android:id="@+id/submit_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GOTOWE"/>
+</android.support.constraint.ConstraintLayout>
