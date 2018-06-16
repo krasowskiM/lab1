@@ -38,6 +38,7 @@ public class ActivityLab1 extends AppCompatActivity {
                 BigDecimal avg = BigDecimal.valueOf(average);
                 final BigDecimal scaled = avg.setScale(2, BigDecimal.ROUND_HALF_UP);
                 textAverage.setText(String.format(getString(R.string.average), scaled.toPlainString()));
+                textAverage.setVisibility(View.VISIBLE);
                 if(scaled.compareTo(BigDecimal.valueOf(3)) >= 0) {
                     submitButton.setText("Super :)");
                 } else {
@@ -47,15 +48,21 @@ public class ActivityLab1 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(scaled.compareTo(BigDecimal.valueOf(3)) >= 0) {
-                            Toast.makeText(ActivityLab1.this, "Gratulacje! Otrzymujesz zaliczenie!", Toast.LENGTH_SHORT);
+                            Toast.makeText(ActivityLab1.this, "Gratulacje! Otrzymujesz zaliczenie!", Toast.LENGTH_SHORT).show();
+                            finish();
                         } else {
-                            Toast.makeText(ActivityLab1.this, "Wysylam podanie o zaliczenie warunkowe.", Toast.LENGTH_SHORT);
+                            Toast.makeText(ActivityLab1.this, "Wysylam podanie o zaliczenie warunkowe.", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
-                        finish();
                     }
                 });
             }
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     private void handleTextView() {

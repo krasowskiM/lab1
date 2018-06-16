@@ -56,7 +56,10 @@
         <TextView
             android:id="@+id/textAverage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/submit_1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:id="@+id/submit_1"

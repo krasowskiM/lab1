@@ -2,6 +2,7 @@ package com.example.maciej_krasowski.lab1.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,10 +13,13 @@ import com.example.maciej_krasowski.lab1.R;
 import com.example.maciej_krasowski.lab1.adapter.InteractiveArrayAdapter;
 import com.example.maciej_krasowski.lab1.model.Grade;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GradePickActivity extends AppCompatActivity {
+    private List<Grade> grades;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,8 +29,8 @@ public class GradePickActivity extends AppCompatActivity {
         if (extras != null) {
             String gradeNumber = extras.getString(getString(R.string.gradeKey));
             int numbers = Integer.parseInt(gradeNumber);
-            final List<Grade> grades = new ArrayList<>();
-            for(int i = 1; i < numbers; i++){
+            grades = new ArrayList<>();
+            for (int i = 1; i <= numbers; i++) {
                 grades.add(new Grade("ocena " + i));
             }
             InteractiveArrayAdapter interactiveArrayAdapter = new InteractiveArrayAdapter(this, grades);
@@ -40,9 +44,10 @@ public class GradePickActivity extends AppCompatActivity {
                     for (Grade grade : grades) {
                         sum += grade.getValue();
                     }
-                    double average = sum / grades.size();
+                    BigDecimal average = BigDecimal.valueOf(sum)
+                            .divide(BigDecimal.valueOf(grades.size()), 2, RoundingMode.HALF_UP);
                     Bundle bundle = new Bundle();
-                    bundle.putDouble("srednia", average);
+                    bundle.putDouble("srednia", average.doubleValue());
                     Intent intent = new Intent();
                     intent.putExtras(bundle);
                     setResult(RESULT_OK, intent);
@@ -50,5 +55,23 @@ public class GradePickActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(grades != null){
+
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        if(grades != null){
+            for (Grade grade : grades) {
+                outState.putInt(grade.getName(), grade.getValue());
+            }
+        }
+        super.onSaveInstanceState(outState, outPersistentState);
     }
 }

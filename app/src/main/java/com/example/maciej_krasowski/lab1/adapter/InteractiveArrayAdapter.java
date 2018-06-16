@@ -35,7 +35,7 @@ public class InteractiveArrayAdapter extends ArrayAdapter<Grade> {
         final Grade grade = grades.get(position);
         if (convertView == null) {
             LayoutInflater inflater = context.getLayoutInflater();
-            childView = inflater.inflate(R.layout.grade_pick_act, null);
+            childView = inflater.inflate(R.layout.list_row, null);
             final RadioGroup gradeButtonGroup = childView.findViewById(R.id.buttonGroup);
             final View finalChildView = childView;
             gradeButtonGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -58,9 +58,26 @@ public class InteractiveArrayAdapter extends ArrayAdapter<Grade> {
 
         TextView label = childView.findViewById(R.id.groupLabel);
         label.setText(grade.getName());
-        RadioGroup gradeGroup = childView.findViewById(R.id.buttonGroup);
-        RadioButton gradeButton = gradeGroup.findViewWithTag(grade);
-        gradeGroup.check(gradeButton.getId());
+        RadioGroup gradeGroup = childView.findViewWithTag(grade);
+        int value = grade.getValue();
+        switch (value) {
+            case 2:
+                gradeGroup.check(R.id.buttonTwo);
+                break;
+            case 3:
+                gradeGroup.check(R.id.buttonThree);
+                break;
+            case 4:
+                gradeGroup.check(R.id.buttonFour);
+                break;
+            case 5:
+                gradeGroup.check(R.id.buttonFive);
+                break;
+            default:
+                gradeGroup.check(R.id.buttonThree);
+                break;
+        }
+
 
         return childView;
     }
