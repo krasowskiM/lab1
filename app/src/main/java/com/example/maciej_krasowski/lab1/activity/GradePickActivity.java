@@ -2,7 +2,6 @@ package com.example.maciej_krasowski.lab1.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GradePickActivity extends AppCompatActivity {
+    private static final String GRADES = "grades";
     private List<Grade> grades;
 
     @Override
@@ -30,8 +30,12 @@ public class GradePickActivity extends AppCompatActivity {
             String gradeNumber = extras.getString(getString(R.string.gradeKey));
             int numbers = Integer.parseInt(gradeNumber);
             grades = new ArrayList<>();
-            for (int i = 1; i <= numbers; i++) {
-                grades.add(new Grade("ocena " + i));
+            if (savedInstanceState != null) {
+                grades = (ArrayList) savedInstanceState.getSerializable(GRADES);
+            } else {
+                for (int i = 1; i <= numbers; i++) {
+                    grades.add(new Grade("ocena " + i));
+                }
             }
             InteractiveArrayAdapter interactiveArrayAdapter = new InteractiveArrayAdapter(this, grades);
             ListView gradesList = findViewById(R.id.gradeListView);
@@ -58,20 +62,8 @@ public class GradePickActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        if(grades != null){
-
-        }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        if(grades != null){
-            for (Grade grade : grades) {
-                outState.putInt(grade.getName(), grade.getValue());
-            }
-        }
-        super.onSaveInstanceState(outState, outPersistentState);
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable(GRADES, (ArrayList) grades);
+        super.onSaveInstanceState(outState);
     }
 }
